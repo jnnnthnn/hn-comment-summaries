@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HN Comment Summarizer Configuration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 5px 10px;
+            width: 250px;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="password"] {
+            padding: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #333;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .disclaimer {
+            font-size: 0.8em;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HN Comment Summarizer Configuration</h1>
+    <form id="configForm">
+        <label for="apiKey">Enter OpenAI API Key:</label>
+        <input type="password" id="apiKey" name="apiKey" placeholder="sk-..." required autofocus />
+        <button type="submit">Save</button>
+    </form>
+    <p class="disclaimer">Your API key is stored on your machine. Requests are made directly from
+        browser tabs showing Hacker News threads. In principle, a malicious third-party
+        extension could spy on those and steal your API key. Additionally, even
+        though we use a very cheap model, we haven't built in cost controls. You're
+        advised to use <a
+            href="https://help.openai.com/en/articles/9186755-managing-your-work-in-the-api-platform-with-projects#h_d2c8f84ece"
+            target="_blank">OpenAI's project usage limits</a> as spend guardrails.</p>
+    <p class="disclaimer">In our testing, reading a dozen or so HN posts a day
+        resulted in about $0.02 in OpenAI usage costs (as of August 2024).</p>
+    <script src="popup.js"></script>
+</body>
+
+</html>
